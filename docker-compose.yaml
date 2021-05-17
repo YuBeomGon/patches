@@ -1,8 +1,8 @@
 version: '3.4'
 
 services:
-    save_path:
-        image: save-path
+    save_patch:
+        image: save-patch
         working_dir: /app
         volumes:
             # Connect the client's data folder to the docker's /app/data folder
