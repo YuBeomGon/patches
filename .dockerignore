@@ -1,0 +1,11 @@
+# wsi data
+data
+openslide
+resources
+
+**/*.db
+**/*.bif
+**/*.svs
+**/*.tif
+.idea
+platform-api-credential.json
