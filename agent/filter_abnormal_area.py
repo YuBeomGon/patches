@@ -119,7 +119,7 @@ class FilterArea(Process):
             img.save(tile_save_path)
 
             if i in point_index:
-                percentage = point_index.index(i) + 1 * 10
+                percentage = (point_index.index(i) + 1) * 10
                 LOGGER.info(f"{slide_name} - {percentage} finished")
 
         LOGGER.info("Finished...")
