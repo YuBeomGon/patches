@@ -1,0 +1,15 @@
+path:
+    read: "data"
+    save: "patch"
+log:
+    path: resources/agent.log
+multiprocessing:
+    process_num: 2
+patch:
+    size: 2048
+watcher:
+    format:
+        - bif
+        - tif
+        - svs
+
