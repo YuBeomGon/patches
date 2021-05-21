@@ -74,17 +74,17 @@ class FilterArea(Process):
             tile_size=dict(width=self.size, height=self.size),
         ):
             tile_image = tile_info["tile"]
-            tile_image = Image.fromarray(tile_image)
+            img = Image.fromarray(tile_image)
             position = tile_info["tile_position"]["position"]
 
-            h, w = tile_image[..., 0].shape
+            h, w = img[..., 0].shape
             if w != self.size or h != self.size:
                 canvas = np.zeros((self.size, self.size, 3), np.uint8)
                 canvas.fill(255)
-                canvas[:h, :w] = tile_image
-                tile_image = canvas
+                canvas[:h, :w] = img
+                img = canvas
 
-            if self.check_abnormal_area(tile_image):
+            if self.check_abnormal_area(img):
                 tile_name = f"{slide_name}_{position}.png"
                 df.loc[len(df)] = {
                     "tile_name": tile_name,
