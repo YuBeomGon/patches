@@ -93,10 +93,11 @@ class FilterArea(Process):
     def check_iter_tiles(self, file_path):
         LOGGER.info("Scoring...")
         slide_name, _ = get_slide_name(file_path)
+        dir_name = os.path.dirname(file_path)
         save_path = os.path.join(
             CONFIG["path"]["save"],
+            dir_name,
             slide_name,
-            str(CONFIG["patch"]["size"]),
         )
         if not os.path.exists(save_path):
             os.makedirs(save_path)
@@ -118,8 +119,8 @@ class FilterArea(Process):
             coordinate = (tile_info["x"], tile_info["y"])
             position = tuple([round(x / y, 5) for x, y in zip(coordinate, slide_size)])
             tile_image = tile_info["tile"]
-            tile_image = Image.fromarray(tile_image)
-            img = tile_image.resize((512, 512))
+            img = Image.fromarray(tile_image)
+            # img = tile_image.resize((512, 512))
 
             tile_name = f"{slide_name}_{idx}_{position}.png"
             tile_save_path = os.path.join(save_path, tile_name)

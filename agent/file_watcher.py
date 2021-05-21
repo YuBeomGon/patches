@@ -11,5 +11,7 @@ class Watcher:
         self.extensions = CONFIG["watcher"]["format"]
 
     def collect_files(self):
-        files = glob.glob(os.path.join(self.path, f"*{self.extensions}"))
+        files = glob.glob(
+            os.path.join(self.path, f"**/**{self.extensions}"), recursive=True
+        )
         return files
