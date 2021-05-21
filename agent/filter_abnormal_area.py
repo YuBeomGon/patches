@@ -22,6 +22,9 @@ class FilterArea(Process):
 
     def check_abnormal_area(self, image: np.ndarray):
         gray_img = image[..., 0]
+        h, w = gray_img.shape
+        if h != self.size or w != self.size:
+            return False
 
         mask = (gray_img > 70) * (gray_img < 220)
         otsu_ratio = mask.sum() / np.multiply(*mask.shape)
