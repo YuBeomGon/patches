@@ -15,6 +15,9 @@ opencv-python = "^4.5.2"
 PyYAML = "^5.4.1"
 Pillow = "^8.2.0"
 pandas = "1.1.5"
+openslide-python = "^1.1.2"
+large-image = "1.6.0"
+large-image-source-openslide = "1.6.0"
 
 [tool.poetry.dev-dependencies]
 

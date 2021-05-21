@@ -1,4 +1,73 @@
 [[package]]
+name = "cachetools"
+version = "4.2.2"
+description = "Extensible memoizing collections and decorators"
+category = "main"
+optional = false
+python-versions = "~=3.5"
+
+[package.source]
+type = "legacy"
+url = "https://nexus.doai.ai/repository/pypi-public/simple"
+reference = "nexus"
+
+[[package]]
+name = "large-image"
+version = "1.6.0"
+description = "Create, serve, and display large multiresolution images."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+cachetools = ">=3.0.0"
+numpy = ">=1.10.4"
+Pillow = "*"
+psutil = ">=4.2.0"
+
+[package.extras]
+all = ["large-image-source-ometiff", "large-image-source-openslide", "large-image-source-bioformats", "pylibmc (>=1.5.1)", "large-image-source-nd2", "large-image-source-pil", "large-image-source-openjpeg", "large-image-source-mapnik", "large-image-source-gdal", "large-image-source-dummy", "large-image-source-tiff", "large-image-source-test"]
+bioformats = ["large-image-source-bioformats"]
+dummy = ["large-image-source-dummy"]
+gdal = ["large-image-source-gdal"]
+mapnik = ["large-image-source-mapnik"]
+memcached = ["pylibmc (>=1.5.1)"]
+nd2 = ["large-image-source-nd2"]
+ometiff = ["large-image-source-ometiff"]
+openjpeg = ["large-image-source-openjpeg"]
+openslide = ["large-image-source-openslide"]
+pil = ["large-image-source-pil"]
+sources = ["large-image-source-ometiff", "large-image-source-openslide", "large-image-source-bioformats", "large-image-source-nd2", "large-image-source-pil", "large-image-source-openjpeg", "large-image-source-mapnik", "large-image-source-gdal", "large-image-source-dummy", "large-image-source-tiff", "large-image-source-test"]
+test = ["large-image-source-test"]
+tiff = ["large-image-source-tiff"]
+
+[package.source]
+type = "legacy"
+url = "https://nexus.doai.ai/repository/pypi-public/simple"
+reference = "nexus"
+
+[[package]]
+name = "large-image-source-openslide"
+version = "1.6.0"
+description = "An Openslide tilesource for large_image"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+large-image = ">=1.0.0"
+openslide-python = ">=1.1.0"
+tifftools = ">=1.2.0"
+
+[package.extras]
+girder = ["girder-large-image (>=1.0.0)"]
+
+[package.source]
+type = "legacy"
+url = "https://nexus.doai.ai/repository/pypi-public/simple"
+reference = "nexus"
+
+[[package]]
 name = "numpy"
 version = "1.19.5"
 description = "NumPy is the fundamental package for array computing with Python."
@@ -21,6 +90,22 @@ python-versions = ">=3.6"
 
 [package.dependencies]
 numpy = ">=1.13.3"
+
+[package.source]
+type = "legacy"
+url = "https://nexus.doai.ai/repository/pypi-public/simple"
+reference = "nexus"
+
+[[package]]
+name = "openslide-python"
+version = "1.1.2"
+description = "Python interface to OpenSlide"
+category = "main"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[package.dependencies]
+Pillow = "*"
 
 [package.source]
 type = "legacy"
@@ -55,6 +140,22 @@ description = "Python Imaging Library (Fork)"
 category = "main"
 optional = false
 python-versions = ">=3.6"
+
+[package.source]
+type = "legacy"
+url = "https://nexus.doai.ai/repository/pypi-public/simple"
+reference = "nexus"
+
+[[package]]
+name = "psutil"
+version = "5.8.0"
+description = "Cross-platform lib for process and system monitoring in Python."
+category = "main"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[package.extras]
+test = ["ipaddress", "mock", "unittest2", "enum34", "pywin32", "wmi"]
 
 [package.source]
 type = "legacy"
@@ -116,12 +217,37 @@ type = "legacy"
 url = "https://nexus.doai.ai/repository/pypi-public/simple"
 reference = "nexus"
 
+[[package]]
+name = "tifftools"
+version = "1.2.2"
+description = "Pure python tiff tools to handle all tags and IFDs."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.source]
+type = "legacy"
+url = "https://nexus.doai.ai/repository/pypi-public/simple"
+reference = "nexus"
+
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6.1"
-content-hash = "17fb65ab479175fb8fc241862cefa4a52f4f7fc3ba5df9724d553dea7f313386"
+content-hash = "7c1d4b648aab475f00513c8791a7dbadea69371d1c2c0f967b43a15806267e26"
 
 [metadata.files]
+cachetools = [
+    {file = "cachetools-4.2.2-py3-none-any.whl", hash = "sha256:2cc0b89715337ab6dbba85b5b50effe2b0c74e035d83ee8ed637cf52f12ae001"},
+    {file = "cachetools-4.2.2.tar.gz", hash = "sha256:61b5ed1e22a0924aed1d23b478f37e8d52549ff8a961de2909c69bf950020cff"},
+]
+large-image = [
+    {file = "large-image-1.6.0.tar.gz", hash = "sha256:ab1c5ebb61c1bccfb1fd36aa3fcd5cb2bbd063d556e45d31af1145d28b293238"},
+    {file = "large_image-1.6.0-py2.py3-none-any.whl", hash = "sha256:76e3480945b872a0299c1795b8b46801cb0a1026c90e81e237243ccf44a923a7"},
+]
+large-image-source-openslide = [
+    {file = "large-image-source-openslide-1.6.0.tar.gz", hash = "sha256:879609107553b0b8c9e00bab68e236494f147b0df7b2a3ca4be2ba725dda84d9"},
+    {file = "large_image_source_openslide-1.6.0-py3-none-any.whl", hash = "sha256:4e62cf1a6af19a7766fb657689746c8dba4a94d2575edab5ae5042bc2ecd2dab"},
+]
 numpy = [
     {file = "numpy-1.19.5-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:cc6bd4fd593cb261332568485e20a0712883cf631f6f5e8e86a52caa8b2b50ff"},
     {file = "numpy-1.19.5-cp36-cp36m-manylinux1_i686.whl", hash = "sha256:aeb9ed923be74e659984e321f609b9ba54a48354bfd168d21a2b072ed1e833ea"},
@@ -175,6 +301,25 @@ opencv-python = [
     {file = "opencv_python-4.5.2.52-cp39-cp39-manylinux2014_x86_64.whl", hash = "sha256:7e8e31b0e206c3567cb96408eb0e27314bb1526eb072f9e509db77af0262ecaf"},
     {file = "opencv_python-4.5.2.52-cp39-cp39-win32.whl", hash = "sha256:1a9d6dd0b1d5cb6031c38b6acf2043b2ec1717093b39592c2a0b98f5b31c8d3e"},
     {file = "opencv_python-4.5.2.52-cp39-cp39-win_amd64.whl", hash = "sha256:31d6a413d459a18ef280d88e8d9257cc5e5009657022c88bb88694a94ccce3ba"},
+]
+openslide-python = [
+    {file = "openslide-python-1.1.2.tar.gz", hash = "sha256:00f5e34dca56500b598454107a0acf243788ea2072b5468b3fea59f756b832a8"},
+    {file = "openslide_python-1.1.2-cp27-cp27m-win32.whl", hash = "sha256:6a614ba40bd6eb1588adf86c90f59d4e4243e14903572015656135313956d557"},
+    {file = "openslide_python-1.1.2-cp27-cp27m-win_amd64.whl", hash = "sha256:af671a07c60746180c2b6809d13b0d38f5418824f9c06cd26372aa394816c87f"},
+    {file = "openslide_python-1.1.2-cp33-cp33m-win32.whl", hash = "sha256:4d4e618eca48a2b3baa748fbb37c820e8ca326de368a13f4537dc923cd7c9983"},
+    {file = "openslide_python-1.1.2-cp33-cp33m-win_amd64.whl", hash = "sha256:b5b6e35f2264b20b0cb2ec73506bfad3f7eaa811d8e4f03bb8824b3954f88a38"},
+    {file = "openslide_python-1.1.2-cp34-cp34m-win32.whl", hash = "sha256:9eb95e1f217c0deeaf20540048461e68f549462a67ebb017ed822d8f39f14a52"},
+    {file = "openslide_python-1.1.2-cp34-cp34m-win_amd64.whl", hash = "sha256:04f6a185335861c8d372c1c31ae57455c554321f0923d9bb30b02265d52a2675"},
+    {file = "openslide_python-1.1.2-cp35-cp35m-win32.whl", hash = "sha256:303cbcd204f3445bad86f4d967c131c2dcb30d86d6224cc0e0e5c89a44ca31ee"},
+    {file = "openslide_python-1.1.2-cp35-cp35m-win_amd64.whl", hash = "sha256:eb7dfaa1cd2d45712944bd295c758523ca52917ae2f76d129209e5e73adf3287"},
+    {file = "openslide_python-1.1.2-cp36-cp36m-win32.whl", hash = "sha256:8d11c2629151bafab0737dfa6b96b6c86c674852bb48c2ec4a29f093e1895520"},
+    {file = "openslide_python-1.1.2-cp36-cp36m-win_amd64.whl", hash = "sha256:293837890e35ae6f0c3780a69c4d17fa3bc4fbc0ed6779c4e2cc532e8b4b1d47"},
+    {file = "openslide_python-1.1.2-cp37-cp37m-win32.whl", hash = "sha256:a0f57f2ac78f7fbbfd04309f1bf9d61e116471bacb7bb9b637316e811f7b0068"},
+    {file = "openslide_python-1.1.2-cp37-cp37m-win_amd64.whl", hash = "sha256:268699fd111d274c57c88f42ee29861e126439b73360de9235a6adb5e58f5e80"},
+    {file = "openslide_python-1.1.2-cp38-cp38-win32.whl", hash = "sha256:581067fa547e2e4bf1f81267f190d98311203fe6c84916a69f800a3974152b4f"},
+    {file = "openslide_python-1.1.2-cp38-cp38-win_amd64.whl", hash = "sha256:5dcd98f781bc7a75009a06c09d1c9508fc90259db48ac7bcb1a446a9f57ef731"},
+    {file = "openslide_python-1.1.2-cp39-cp39-win32.whl", hash = "sha256:c16d53451f877ff65de73f40e27ca44d7d8e9fb1e5f739d54143e5243e7ebc75"},
+    {file = "openslide_python-1.1.2-cp39-cp39-win_amd64.whl", hash = "sha256:4bf148454b30ced98664c3c3c664190b6b5b373a15eeff0e8043fe1fb41cde54"},
 ]
 pandas = [
     {file = "pandas-1.1.5-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:bf23a3b54d128b50f4f9d4675b3c1857a688cc6731a32f931837d72effb2698d"},
@@ -237,6 +382,36 @@ pillow = [
     {file = "Pillow-8.2.0-pp37-pypy37_pp73-win32.whl", hash = "sha256:e98eca29a05913e82177b3ba3d198b1728e164869c613d76d0de4bde6768a50e"},
     {file = "Pillow-8.2.0.tar.gz", hash = "sha256:a787ab10d7bb5494e5f76536ac460741788f1fbce851068d73a87ca7c35fc3e1"},
 ]
+psutil = [
+    {file = "psutil-5.8.0-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:0066a82f7b1b37d334e68697faba68e5ad5e858279fd6351c8ca6024e8d6ba64"},
+    {file = "psutil-5.8.0-cp27-cp27m-manylinux2010_i686.whl", hash = "sha256:0ae6f386d8d297177fd288be6e8d1afc05966878704dad9847719650e44fc49c"},
+    {file = "psutil-5.8.0-cp27-cp27m-manylinux2010_x86_64.whl", hash = "sha256:12d844996d6c2b1d3881cfa6fa201fd635971869a9da945cf6756105af73d2df"},
+    {file = "psutil-5.8.0-cp27-cp27mu-manylinux2010_i686.whl", hash = "sha256:02b8292609b1f7fcb34173b25e48d0da8667bc85f81d7476584d889c6e0f2131"},
+    {file = "psutil-5.8.0-cp27-cp27mu-manylinux2010_x86_64.whl", hash = "sha256:6ffe81843131ee0ffa02c317186ed1e759a145267d54fdef1bc4ea5f5931ab60"},
+    {file = "psutil-5.8.0-cp27-none-win32.whl", hash = "sha256:ea313bb02e5e25224e518e4352af4bf5e062755160f77e4b1767dd5ccb65f876"},
+    {file = "psutil-5.8.0-cp27-none-win_amd64.whl", hash = "sha256:5da29e394bdedd9144c7331192e20c1f79283fb03b06e6abd3a8ae45ffecee65"},
+    {file = "psutil-5.8.0-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:74fb2557d1430fff18ff0d72613c5ca30c45cdbfcddd6a5773e9fc1fe9364be8"},
+    {file = "psutil-5.8.0-cp36-cp36m-manylinux2010_i686.whl", hash = "sha256:74f2d0be88db96ada78756cb3a3e1b107ce8ab79f65aa885f76d7664e56928f6"},
+    {file = "psutil-5.8.0-cp36-cp36m-manylinux2010_x86_64.whl", hash = "sha256:99de3e8739258b3c3e8669cb9757c9a861b2a25ad0955f8e53ac662d66de61ac"},
+    {file = "psutil-5.8.0-cp36-cp36m-win32.whl", hash = "sha256:36b3b6c9e2a34b7d7fbae330a85bf72c30b1c827a4366a07443fc4b6270449e2"},
+    {file = "psutil-5.8.0-cp36-cp36m-win_amd64.whl", hash = "sha256:52de075468cd394ac98c66f9ca33b2f54ae1d9bff1ef6b67a212ee8f639ec06d"},
+    {file = "psutil-5.8.0-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:c6a5fd10ce6b6344e616cf01cc5b849fa8103fbb5ba507b6b2dee4c11e84c935"},
+    {file = "psutil-5.8.0-cp37-cp37m-manylinux2010_i686.whl", hash = "sha256:61f05864b42fedc0771d6d8e49c35f07efd209ade09a5afe6a5059e7bb7bf83d"},
+    {file = "psutil-5.8.0-cp37-cp37m-manylinux2010_x86_64.whl", hash = "sha256:0dd4465a039d343925cdc29023bb6960ccf4e74a65ad53e768403746a9207023"},
+    {file = "psutil-5.8.0-cp37-cp37m-win32.whl", hash = "sha256:1bff0d07e76114ec24ee32e7f7f8d0c4b0514b3fae93e3d2aaafd65d22502394"},
+    {file = "psutil-5.8.0-cp37-cp37m-win_amd64.whl", hash = "sha256:fcc01e900c1d7bee2a37e5d6e4f9194760a93597c97fee89c4ae51701de03563"},
+    {file = "psutil-5.8.0-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:6223d07a1ae93f86451d0198a0c361032c4c93ebd4bf6d25e2fb3edfad9571ef"},
+    {file = "psutil-5.8.0-cp38-cp38-manylinux2010_i686.whl", hash = "sha256:d225cd8319aa1d3c85bf195c4e07d17d3cd68636b8fc97e6cf198f782f99af28"},
+    {file = "psutil-5.8.0-cp38-cp38-manylinux2010_x86_64.whl", hash = "sha256:28ff7c95293ae74bf1ca1a79e8805fcde005c18a122ca983abf676ea3466362b"},
+    {file = "psutil-5.8.0-cp38-cp38-win32.whl", hash = "sha256:ce8b867423291cb65cfc6d9c4955ee9bfc1e21fe03bb50e177f2b957f1c2469d"},
+    {file = "psutil-5.8.0-cp38-cp38-win_amd64.whl", hash = "sha256:90f31c34d25b1b3ed6c40cdd34ff122b1887a825297c017e4cbd6796dd8b672d"},
+    {file = "psutil-5.8.0-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:6323d5d845c2785efb20aded4726636546b26d3b577aded22492908f7c1bdda7"},
+    {file = "psutil-5.8.0-cp39-cp39-manylinux2010_i686.whl", hash = "sha256:245b5509968ac0bd179287d91210cd3f37add77dad385ef238b275bad35fa1c4"},
+    {file = "psutil-5.8.0-cp39-cp39-manylinux2010_x86_64.whl", hash = "sha256:90d4091c2d30ddd0a03e0b97e6a33a48628469b99585e2ad6bf21f17423b112b"},
+    {file = "psutil-5.8.0-cp39-cp39-win32.whl", hash = "sha256:ea372bcc129394485824ae3e3ddabe67dc0b118d262c568b4d2602a7070afdb0"},
+    {file = "psutil-5.8.0-cp39-cp39-win_amd64.whl", hash = "sha256:f4634b033faf0d968bb9220dd1c793b897ab7f1189956e1aa9eae752527127d3"},
+    {file = "psutil-5.8.0.tar.gz", hash = "sha256:0c9ccb99ab76025f2f0bbecf341d4656e9c1351db8cc8a03ccd62e318ab4b5c6"},
+]
 python-dateutil = [
     {file = "python-dateutil-2.8.1.tar.gz", hash = "sha256:73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"},
     {file = "python_dateutil-2.8.1-py2.py3-none-any.whl", hash = "sha256:75bb3f31ea686f1197762692a9ee6a7550b59fc6ca3a1f4b5d7e32fb98e2da2a"},
@@ -279,4 +454,7 @@ pyyaml = [
 six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
     {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
+]
+tifftools = [
+    {file = "tifftools-1.2.2.zip", hash = "sha256:7a692a3bcf22b2b1ea2601b4fba6dc245e587e0d6393280d5aa39855065d9a22"},
 ]

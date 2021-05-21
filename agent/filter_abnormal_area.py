@@ -1,4 +1,5 @@
 import os
+import gc
 import time
 import datetime
 from multiprocessing import Process
@@ -77,14 +78,6 @@ class FilterArea(Process):
             tile_image = tile_info["tile"]
             position = tile_info["tile_position"]["position"]
 
-            h, w = tile_image[..., 0].shape
-            if w != self.size or h != self.size:
-                canvas = np.zeros((self.size, self.size, 3), np.uint8)
-                canvas.fill(255)
-                canvas[:h, :w] = tile_image
-                tile_image = canvas
-                del canvas
-
             if self.check_abnormal_area(tile_image):
                 tile_name = f"{slide_name}_{position}.png"
                 df.loc[len(df)] = {
@@ -102,9 +95,12 @@ class FilterArea(Process):
                 tile_save_path = os.path.join(save_path, tile_name)
                 tile_image = Image.fromarray(tile_image)
                 tile_image.save(tile_save_path)
+                tile_image.close()
 
                 del tile_image
                 del tile_info
+
+            gc.collect()
 
         df.to_csv(os.path.join(save_path, f"{slide_name}.csv"), index=False)
 
