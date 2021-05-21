@@ -1,5 +1,0 @@
-opencv-python==4.5.2.52
-pyyaml==5.4.1
-yaml~=0.2.5
-numpy~=1.19.5
-pillow~=8.2.0
