@@ -6,6 +6,11 @@ category = "main"
 optional = false
 python-versions = ">=3.6"
 
+[package.source]
+type = "legacy"
+url = "https://nexus.doai.ai/repository/pypi-public/simple"
+reference = "nexus"
+
 [[package]]
 name = "opencv-python"
 version = "4.5.2.52"
@@ -16,6 +21,11 @@ python-versions = ">=3.6"
 
 [package.dependencies]
 numpy = ">=1.13.3"
+
+[package.source]
+type = "legacy"
+url = "https://nexus.doai.ai/repository/pypi-public/simple"
+reference = "nexus"
 
 [[package]]
 name = "pandas"
@@ -33,6 +43,11 @@ pytz = ">=2017.2"
 [package.extras]
 test = ["pytest (>=4.0.2)", "pytest-xdist", "hypothesis (>=3.58)"]
 
+[package.source]
+type = "legacy"
+url = "https://nexus.doai.ai/repository/pypi-public/simple"
+reference = "nexus"
+
 [[package]]
 name = "pillow"
 version = "8.2.0"
@@ -40,6 +55,11 @@ description = "Python Imaging Library (Fork)"
 category = "main"
 optional = false
 python-versions = ">=3.6"
+
+[package.source]
+type = "legacy"
+url = "https://nexus.doai.ai/repository/pypi-public/simple"
+reference = "nexus"
 
 [[package]]
 name = "python-dateutil"
@@ -52,6 +72,11 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
 [package.dependencies]
 six = ">=1.5"
 
+[package.source]
+type = "legacy"
+url = "https://nexus.doai.ai/repository/pypi-public/simple"
+reference = "nexus"
+
 [[package]]
 name = "pytz"
 version = "2021.1"
@@ -59,6 +84,11 @@ description = "World timezone definitions, modern and historical"
 category = "main"
 optional = false
 python-versions = "*"
+
+[package.source]
+type = "legacy"
+url = "https://nexus.doai.ai/repository/pypi-public/simple"
+reference = "nexus"
 
 [[package]]
 name = "pyyaml"
@@ -68,6 +98,11 @@ category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
 
+[package.source]
+type = "legacy"
+url = "https://nexus.doai.ai/repository/pypi-public/simple"
+reference = "nexus"
+
 [[package]]
 name = "six"
 version = "1.16.0"
@@ -76,10 +111,15 @@ category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 
+[package.source]
+type = "legacy"
+url = "https://nexus.doai.ai/repository/pypi-public/simple"
+reference = "nexus"
+
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6.1"
-content-hash = "e0f7bac275c975962a33e47283cf6faf91f9cec092b24295348b051ea31e7123"
+content-hash = "17fb65ab479175fb8fc241862cefa4a52f4f7fc3ba5df9724d553dea7f313386"
 
 [metadata.files]
 numpy = [

@@ -29,12 +29,14 @@ class FilterArea(Process):
             del gray_img
             del mask
             del otsu_ratio
+            del image
 
             return False
 
         del gray_img
         del mask
         del otsu_ratio
+        del image
 
         return True
 
@@ -102,6 +104,7 @@ class FilterArea(Process):
                 tile_image.save(tile_save_path)
 
                 del tile_image
+                del tile_info
 
         df.to_csv(os.path.join(save_path, f"{slide_name}.csv"), index=False)
 
