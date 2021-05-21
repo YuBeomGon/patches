@@ -51,7 +51,6 @@ class FilterArea(Process):
                 "tile_size",
                 "tile_x",
                 "tile_y",
-                "save",
             ]
         )
         slide_name, _ = get_slide_name(file_path)
@@ -74,17 +73,17 @@ class FilterArea(Process):
             tile_size=dict(width=self.size, height=self.size),
         ):
             tile_image = tile_info["tile"]
-            img = Image.fromarray(tile_image)
             position = tile_info["tile_position"]["position"]
 
-            h, w = img[..., 0].shape
+            h, w = tile_image[..., 0].shape
             if w != self.size or h != self.size:
                 canvas = np.zeros((self.size, self.size, 3), np.uint8)
                 canvas.fill(255)
-                canvas[:h, :w] = img
-                img = canvas
+                canvas[:h, :w] = tile_image
+                tile_image = canvas
+                del canvas
 
-            if self.check_abnormal_area(img):
+            if self.check_abnormal_area(tile_image):
                 tile_name = f"{slide_name}_{position}.png"
                 df.loc[len(df)] = {
                     "tile_name": tile_name,
@@ -99,12 +98,12 @@ class FilterArea(Process):
                 }
 
                 tile_save_path = os.path.join(save_path, tile_name)
+                tile_image = Image.fromarray(tile_image)
                 tile_image.save(tile_save_path)
 
                 del tile_image
-                del canvas
 
-        df.to_csv(os.path.join(save_path, f"{slide_name}.csv", index=False))
+        df.to_csv(os.path.join(save_path, f"{slide_name}.csv"), index=False)
 
         del ts
         del df
