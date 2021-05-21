@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["doai"]
 
-[tool.poetry.source]
+[[tool.poetry.source]]
 name = "nexus"
 url = "https://nexus.doai.ai/repository/pypi-public/simple"
 default = true
