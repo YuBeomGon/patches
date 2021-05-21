@@ -43,6 +43,6 @@ def split_data(data, n):
     while data:
         file = data.pop()
         dic[i].append(file)
-        i = 0 if i == n else i + 1
+        i = 0 if i == n - 1 else i + 1
 
     return dic
