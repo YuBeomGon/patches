@@ -33,16 +33,3 @@ def get_slide_name(file_path):
     base_name = os.path.basename(file_path)
     return os.path.splitext(base_name)
 
-
-def split_data(data, n):
-    dic = {}
-    for i in range(n):
-        dic[i] = []
-
-    i = 0
-    while data:
-        file = data.pop()
-        dic[i].append(file)
-        i = 0 if i == n - 1 else i + 1
-
-    return dic

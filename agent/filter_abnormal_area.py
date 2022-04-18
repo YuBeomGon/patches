@@ -11,8 +11,10 @@ import numpy as np
 import pandas as pd
 from PIL import Image
 
-from agent.settings import CONFIG, LOGGER
-from agent.utils import get_slide_name
+from agent.utils import get_slide_name, read_config, get_logger
+
+CONFIG = read_config("resources/config.yaml")
+LOGGER = get_logger("agent", CONFIG["log"]["path"])
 
 
 class FilterArea(Process):
@@ -63,12 +65,6 @@ class FilterArea(Process):
             ]
         )
         slide_name, _ = get_slide_name(file_path)
-        dir_name = os.path.dirname(file_path).split("/")[-1]
-        # save_path = os.path.join(
-        #     self.des_folder,
-        #     dir_name,
-        #     slide_name,
-        # )
         save_path = self.des_folder
         if not os.path.exists(save_path):
             os.makedirs(save_path)
