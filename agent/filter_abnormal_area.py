@@ -2,7 +2,9 @@ import os
 import gc
 import time
 import datetime
+import re
 from multiprocessing import Process
+from time import sleep
 
 import large_image
 import numpy as np
@@ -14,11 +16,12 @@ from agent.utils import get_slide_name
 
 
 class FilterArea(Process):
-    def __init__(self, file_list):
+    def __init__(self, src_file, des_folder):
         super().__init__()
         self.daemon = True
-        self.file_list = file_list
+        self.src_file = src_file
         self.size = CONFIG["patch"]["size"]
+        self.des_folder = des_folder
 
     def check_abnormal_area(self, image: np.ndarray):
         gray_img = image[..., 0]
@@ -61,11 +64,12 @@ class FilterArea(Process):
         )
         slide_name, _ = get_slide_name(file_path)
         dir_name = os.path.dirname(file_path).split("/")[-1]
-        save_path = os.path.join(
-            CONFIG["path"]["save"],
-            dir_name,
-            slide_name,
-        )
+        # save_path = os.path.join(
+        #     self.des_folder,
+        #     dir_name,
+        #     slide_name,
+        # )
+        save_path = self.des_folder
         if not os.path.exists(save_path):
             os.makedirs(save_path)
 
@@ -99,6 +103,8 @@ class FilterArea(Process):
                 tile_image = Image.fromarray(tile_image)
                 tile_image.save(tile_save_path)
                 tile_image.close()
+                
+                #sleep(0.1)
 
                 del tile_image
                 del tile_info
@@ -113,12 +119,11 @@ class FilterArea(Process):
 
     def run(self) -> None:
         try:
-            for file in self.file_list:
-                start = time.time()
-                self.check_iter_tiles(file)
-                sec = time.time() - start
-                times = str(datetime.timedelta(seconds=sec)).split(".")
-                LOGGER.info(f"slide processing time: {times[0]}")
+            start = time.time()
+            self.check_iter_tiles(self.src_file)
+            sec = time.time() - start
+            times = str(datetime.timedelta(seconds=sec)).split(".")
+            LOGGER.info(f"slide processing time: {times[0]}")
 
         except Exception as e:
             LOGGER.error(e)
