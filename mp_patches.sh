@@ -5,7 +5,7 @@
 src_dir='/data/beomgon/Dataset/paps/20220405/HS6'
 dst_dir='/data/beomgon/Dataset/paps/patch_images1/2022.04.07'
 num_process=2
-files_threshold=300
+files_threshold=600
 
 # ./make_patch src_dir des_dir
 if [ $# -eq 2 ] ; then
