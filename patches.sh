@@ -4,7 +4,7 @@
 #default src, des path
 src_dir='/data/beomgon/Dataset/paps/20220405/SC6'
 dst_dir='/data/beomgon/Dataset/paps/patch_images1/2022.04.08'
-files_threshold=400
+files_threshold=100
 
 # ./make_patch src_dir des_dir
 if [ $# -eq 2 ] ; then
@@ -51,10 +51,12 @@ for file in $file_list ; do
 done
 
 # check file numbers of each wsi
+file_list=`ls $src_dir`
 for file in $file_list ; do
     # use *.bif file only
+    wsi_name=${file:0:-4}
     if [[ $file == *bif ]] ; then
-        echo $dst_dir `ls $dst_dir'/'$wsi_name
+        echo $wsi_name `ls $dst_dir'/'$wsi_name | wc -l`
     fi
 done
 
